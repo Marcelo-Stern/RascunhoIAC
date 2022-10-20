@@ -18,31 +18,29 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    val quadril: EditText = findViewById(R.id.edtQuadril)
-    val alt: EditText = findViewById(R.id.edtAltura)
+    private val quad: EditText = findViewById(R.id.edtQuadril)
+    private val alt: EditText = findViewById(R.id.edtAltura)
 
     private fun calcIAC(){
-        val quadril: EditText = findViewById(R.id.edtQuadril)
-        val alt: EditText = findViewById(R.id.edtAltura)
-
-        if(quadril.text.isEmpty() || alt.text.isEmpty()){
+        if(quad.text.isEmpty() || alt.text.isEmpty()){
             Toast.makeText(this, "Preencha os campos corretamente para efetuar o cálculo!", Toast.LENGTH_SHORT).show()
             return
         }else{
             val resultado = iac()
-            Toast.makeText(this, "O seu Índice de Adiposidade Corporal é: , resultado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "O seu Índice de Adiposidade Corporal é: $resultado", Toast.LENGTH_SHORT).show()
             return
         }
     }
 
-    private fun iac() {
-        val inputQuadril = quadril.text.toString()
+    private fun iac(): Double {
+        val inputQuad = quad.text.toString()
         val inputAlt = alt.text.toString()
 
-        val quadril = inputQuadril.toDouble()
-        val altura = inputAlt.toDouble()
+        val quad = inputQuad.toDouble()
+        val alt = inputAlt.toDouble()
 
-        val denom = altura * sqrt(altura)
-        val resultIAC = quadril / denom - 18
+        val denom = alt * kotlin.math.sqrt(alt)
+        val resultIAC = quad / denom - 18
+        return resultIAC
     }
 }
