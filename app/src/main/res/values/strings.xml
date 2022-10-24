@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">iacCalc</string>
     <string name="lblQuadril">Largura do Quadril (cm):</string>
-    <string name="lblAltura">Altura (cm):</string>
+    <string name="lblAltura">Altura (m):</string>
     <string name="lblCalc">Calcular</string>
     <string name="lblResult">O seu IAC é: </string>
 </resources>
