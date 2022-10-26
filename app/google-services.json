@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "841930777578",
+    "project_id": "iaccalc",
+    "storage_bucket": "iaccalc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841930777578:android:2295ddc4fb366d9740c893",
+        "android_client_info": {
+          "package_name": "com.example.iaccalc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "841930777578-3ia275i613l4621mttdc4vtuu7pid756.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8_59yy2sk6yzsBG2ruYDX6jx8m1eZzJE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "841930777578-3ia275i613l4621mttdc4vtuu7pid756.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

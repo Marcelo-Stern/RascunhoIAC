@@ -1,11 +1,14 @@
 package com.example.iaccalc
 
+import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import java.lang.Math.sqrt
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,6 +18,8 @@ class MainActivity : AppCompatActivity() {
         val quad: EditText = findViewById(R.id.edtQuadril)
         val alt: EditText = findViewById(R.id.edtAltura)
         val btCalc: Button = findViewById(R.id.btnCalc)
+
+        val db = Firebase.firestore
 
         fun iac(): Double {
             val inputQuad = quad.text.toString()
@@ -40,6 +45,22 @@ class MainActivity : AppCompatActivity() {
 
         btCalc.setOnClickListener{
             calcIAC()
+
+            val calculaIAC = hashMapOf(
+                "circunferenciaQuadril" to quad.text.toString(),
+                "altura" to alt.text.toString(),
+                "resultado" to calcIAC().toString()
+            )
+
+            // Add a new document with a generated ID
+            db.collection("iac")
+                .add(calculaIAC)
+                .addOnSuccessListener { documentReference ->
+                    Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                }
+                .addOnFailureListener{ e ->
+                    Log.w(TAG, "Error adding document", e)
+                }
         }
     }
 }
